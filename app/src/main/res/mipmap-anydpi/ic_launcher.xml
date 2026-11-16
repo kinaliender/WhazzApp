@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uygulama ikonu. Kaynak: icon/WhazzApp.png. Ön katman PNG'leri (mipmap-*dpi) logonun
+     tamamı her maske şeklinde (daire, squircle, yuvarlak kare) görünecek şekilde küçültülmüştür. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

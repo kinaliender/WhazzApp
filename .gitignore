@@ -1,0 +1,42 @@
+# Gradle / Kotlin build outputs
+.gradle/
+build/
+.kotlin/
+.cxx/
+.externalNativeBuild/
+captures/
+
+# Built packages and build metadata
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.idsig
+output-metadata.json
+app/release/
+app/debug/
+
+# Signing keys (never commit)
+*.jks
+*.keystore
+keystore.properties
+
+# Machine-specific
+local.properties
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs, dumps, tool caches
+*.log
+*.hprof
+__pycache__/
+
+# Local tools
+icon/make_icons.py

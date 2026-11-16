@@ -1,0 +1,35 @@
+<resources>
+    <!-- Notification channels -->
+    <string name="channel_service">Arka plan bağlantısı</string>
+    <string name="channel_messages">Mesajlar · %1$s</string>
+
+    <!-- Foreground service -->
+    <string name="service_title">WhazzApp çalışıyor</string>
+    <plurals name="service_text">
+        <item quantity="one">%1$d hesap bağlı tutuluyor</item>
+        <item quantity="other">%1$d hesap bağlı tutuluyor</item>
+    </plurals>
+    <string name="service_stop">Durdur</string>
+
+    <!-- Account strip -->
+    <string name="account_default_name">Hesap %1$d</string>
+    <string name="account_add">Hesap ekle</string>
+    <string name="account_add_hint">Hesap adı (ör. İş, Kişisel)</string>
+    <string name="account_add_info">Yeni hesap için WhatsApp giriş ekranı açılacak. Aynı telefondaysanız QR yerine \"Telefon numarasıyla giriş yap\" seçeneğini kullanın.</string>
+    <string name="account_rename">Yeniden adlandır</string>
+    <string name="account_remove">Hesabı kaldır</string>
+    <string name="account_remove_confirm">\"%1$s\" bu cihazdan kaldırılsın mı? Oturum verileri silinir. Bağlı cihaz listesinden de çıkması için önce WhatsApp menüsünden \"Çıkış yap\" yapmanız önerilir.</string>
+    <string name="account_multi_unsupported">Bu cihazdaki WebView sürümü birden fazla hesabı desteklemiyor. Android System WebView\'ı güncelleyin.</string>
+
+    <!-- Menu -->
+    <string name="menu">Menü</string>
+    <string name="menu_battery">Pil optimizasyonunu kapat</string>
+    <string name="menu_stop">Arka planı durdur ve çık</string>
+
+    <string name="ok">Tamam</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="remove">Kaldır</string>
+
+    <string name="download_done">İndirildi: %1$s</string>
+    <string name="download_failed">İndirme başarısız</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.WhazzApp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#00A884</item>
+        <item name="colorPrimaryDark">#111B21</item>
+        <item name="android:statusBarColor">#111B21</item>
+        <item name="android:navigationBarColor">#111B21</item>
+        <item name="android:windowBackground">#111B21</item>
+    </style>
+</resources>

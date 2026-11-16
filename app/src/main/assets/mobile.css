@@ -1,0 +1,118 @@
+/*
+ * WhazzApp — telefon düzeni.
+ * mobile.js satır elemanını [data-whazz-row], sütunlarını [data-whazz="..."] ile etiketler,
+ * sohbet açıkken <html class="whazz-chat"> olur.
+ */
+
+html, body {
+  min-width: 0 !important;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.whazz-ready, html.whazz-ready body {
+  overflow: hidden !important;
+}
+
+/* WhatsApp'ın masaüstü minimum genişliklerini kaldır */
+#app, #app > div, #app > div > div, [data-whazz-row] {
+  min-width: 0 !important;
+}
+[data-whazz-row] {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100% !important;
+}
+[data-whazz-row] > [data-whazz] {
+  min-width: 0 !important;
+  max-width: none !important;
+}
+/* Klavye açılınca görünür alan küçülür. Flex öğelerinin varsayılan min-height:auto'su satırı
+   içeriğin doğal yüksekliğinde (~512px) tutuyor, mesaj kutusu klavyenin arkasında kalıyordu.
+   min-height:0 ile başlık en üstte, mesaj kutusu görünür alanın en altında kalır. */
+#app, #app > div, #app > div > div, #app > div > div > div, #app > div > div > div > div,
+[data-whazz-row], [data-whazz-row] > [data-whazz], #main {
+  min-height: 0 !important;
+}
+
+/* Boş yer tutucu katmanlar: hiç gösterme (açık değilken dokunmaları da yutmasınlar) */
+[data-whazz="slot"] {
+  display: none !important;
+}
+
+/* ---------- Liste ekranı (sohbet kapalı) ---------- */
+html:not(.whazz-chat) [data-whazz="side"] {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* Sohbet sütunu sohbet yokken "giriş" ekranını taşır; listede gizli */
+html:not(.whazz-chat) [data-whazz="main"] {
+  display: none !important;
+}
+[data-whazz="rail"] {
+  flex: 0 0 auto !important;
+}
+
+/* ---------- Sohbet ekranı ---------- */
+html.whazz-chat [data-whazz="side"],
+html.whazz-chat [data-whazz="rail"] {
+  display: none !important;
+}
+html.whazz-chat [data-whazz="main"] {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ---------- Açık paneller ---------- */
+/* mobile.js her dolu katmana data-whazz-mode verir:
+ *   detail → tam ekran (kişi/grup bilgisi, arama detayı, durum görüntüleyici...)
+ *   list   → sekme listesi / alt ekran (Aramalar, Durum, Kanallar, Topluluklar, Ayarlar, Yeni sohbet):
+ *            sohbet listesi gibi rayın sağındaki alanın tamamı; ray görünür kalır.
+ * Bölmeler: list/detail/full = göster (tam genişlik), empty/placeholder = gizle;
+ * detail modunda liste bölmesi de gizlenir. */
+[data-whazz="drawer"] {
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  /* side/rail z=200, WhatsApp katmanları z=300; toast kutusu z=900 üstte kalsın */
+  z-index: 500 !important;
+  background: var(--background-default, #111b21);
+}
+html:not(.whazz-chat) [data-whazz="drawer"][data-whazz-mode="list"] {
+  left: var(--whazz-rail-w, 0px) !important;
+  width: auto !important;
+  max-width: none !important;
+}
+/* Sekmeden bir sohbet açılırsa (ör. kanal) liste katmanı sohbetin üstünü örtmesin */
+html.whazz-chat [data-whazz="drawer"][data-whazz-mode="list"] {
+  display: none !important;
+}
+[data-whazz="drawer"] > [data-whazz-pane="empty"],
+[data-whazz="drawer"] > [data-whazz-pane="placeholder"],
+[data-whazz="drawer"][data-whazz-mode="detail"] > [data-whazz-pane="list"] {
+  display: none !important;
+}
+[data-whazz="drawer"] > [data-whazz-pane="full"],
+[data-whazz="drawer"] > [data-whazz-pane="list"],
+[data-whazz="drawer"] > [data-whazz-pane="detail"] {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin-left: 0 !important;   /* WhatsApp rail için 64px bırakıyor */
+}
+
+/* ---------- Dokunmatik iyileştirmeler ---------- */
+/* Sohbet satırlarındaki açılır menü oku normalde sadece hover'da görünür */
+#pane-side [role="listitem"] [data-icon="down"],
+#pane-side [role="row"] [data-icon="down"] {
+  opacity: 1 !important;
+}
+/* Mesaj giriş alanı ekrana sığsın */
+#main footer {
+  max-width: 100vw !important;
+}

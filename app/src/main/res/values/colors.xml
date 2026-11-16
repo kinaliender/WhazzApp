@@ -1,0 +1,7 @@
+<resources>
+    <color name="wa_bg">#111B21</color>
+    <color name="wa_panel">#202C33</color>
+    <color name="wa_text">#E9EDEF</color>
+    <color name="wa_green">#00A884</color>
+    <color name="ic_launcher_background">#0F9D74</color>
+</resources>
