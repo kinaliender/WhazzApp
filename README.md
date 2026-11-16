@@ -10,6 +10,10 @@ A small Android app that opens WhatsApp Web (web.whatsapp.com) in a WebView and 
 - **Multiple accounts**: each account is a tab in the strip at the top. **+** adds an account; long-press a tab to rename or remove it. Every account runs in its own WebView profile (separate cookies and storage). The strip hides while a chat is open.
 - **Language**: the app follows the system language: Turkish when the phone is set to Turkish, English otherwise. WhatsApp Web itself uses the phone's language.
 
+## Install
+
+Download `WhazzApp-<version>.apk` from the [Releases](https://github.com/kinaliender/WhazzApp/releases) page and open it on the phone (allow installing from this source when Android asks). Requires Android 10 or newer. A newer release installs over the old one and keeps your sessions.
+
 ## How it works
 
 | Part | File | What it does |
@@ -30,10 +34,10 @@ WhatsApp's class names change with every release, so the script does not rely on
 **Android Studio:** open the folder, let Gradle sync, connect the phone and press ▶ Run.
 
 **Command line:** use JDK 17 (Gradle 8.10.2 does not run on newer JDKs):
-`./gradlew assembleDebug` → `app/build/outputs/apk/debug/app-debug.apk`
-(If your default Java is newer, point `JAVA_HOME` at a JDK 17 for this command.)
+- `./gradlew assembleDebug` → `app/build/outputs/apk/debug/app-debug.apk` (WebView remote debugging on)
+- `./gradlew assembleRelease` → `app/build/outputs/apk/release/app-release.apk` (the build attached to Releases)
 
-**Without Android Studio:** push the project to a GitHub repository. `.github/workflows/build.yml` builds the APK and makes it downloadable from the Actions tab.
+(If your default Java is newer, point `JAVA_HOME` at a JDK 17 for this command.)
 
 **Icons:** the logo is `icon/WhazzApp.png`. The launcher icon (`mipmap-*dpi/ic_launcher_foreground.png` on the `ic_launcher_background` color in `colors.xml`) and the status bar icon (`drawable-*dpi/ic_stat_whazzapp.png`, a white silhouette of the logo's speech bubble) are PNGs made from it.
 
